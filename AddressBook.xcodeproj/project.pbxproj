@@ -13,6 +13,10 @@
 		A1E7038628E22A2F008E8408 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E7038428E22A2F008E8408 /* Main.storyboard */; };
 		A1E7038828E22A33008E8408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E7038728E22A33008E8408 /* Assets.xcassets */; };
 		A1E7038B28E22A33008E8408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E7038928E22A33008E8408 /* LaunchScreen.storyboard */; };
+		A1E7039528E23A03008E8408 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7039428E23A03008E8408 /* Person.swift */; };
+		A1E7039728E23B4C008E8408 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7039628E23B4C008E8408 /* Group.swift */; };
+		A1E7039A28E2408B008E8408 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7039928E2408B008E8408 /* PersonController.swift */; };
+		A1E7039C28E25329008E8408 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E7039B28E25329008E8408 /* GroupController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		A1E7038728E22A33008E8408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1E7038A28E22A33008E8408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1E7038C28E22A33008E8408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1E7039428E23A03008E8408 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		A1E7039628E23B4C008E8408 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		A1E7039928E2408B008E8408 /* PersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonController.swift; sourceTree = "<group>"; };
+		A1E7039B28E25329008E8408 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +71,28 @@
 				A1E7038728E22A33008E8408 /* Assets.xcassets */,
 				A1E7038928E22A33008E8408 /* LaunchScreen.storyboard */,
 				A1E7038C28E22A33008E8408 /* Info.plist */,
+				A1E7039828E23D53008E8408 /* Models */,
+				A1E7039D28E25338008E8408 /* Controllers */,
 			);
 			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		A1E7039828E23D53008E8408 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A1E7039428E23A03008E8408 /* Person.swift */,
+				A1E7039628E23B4C008E8408 /* Group.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A1E7039D28E25338008E8408 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1E7039928E2408B008E8408 /* PersonController.swift */,
+				A1E7039B28E25329008E8408 /* GroupController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +168,10 @@
 			files = (
 				A1E7038328E22A2F008E8408 /* ViewController.swift in Sources */,
 				A1E7037F28E22A2F008E8408 /* AppDelegate.swift in Sources */,
+				A1E7039C28E25329008E8408 /* GroupController.swift in Sources */,
+				A1E7039528E23A03008E8408 /* Person.swift in Sources */,
+				A1E7039728E23B4C008E8408 /* Group.swift in Sources */,
+				A1E7039A28E2408B008E8408 /* PersonController.swift in Sources */,
 				A1E7038128E22A2F008E8408 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
