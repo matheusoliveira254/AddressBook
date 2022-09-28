@@ -12,7 +12,7 @@ class GroupController {
     static let sharedInstance = GroupController()
     
     //MARK: - Source of truth
-    var groups: [Group] = []
+    private(set)var groups: [Group] = []
     
     //MARK: - Initializers
     init() {
@@ -26,9 +26,8 @@ class GroupController {
         saveContactsToDisk()
     }
     
-    func updateGroup(groupToUpdate: Group, newName: String, newPeople: [Person] = []) {
+    func updateGroup(groupToUpdate: Group, newName: String) {
         groupToUpdate.name = newName
-        groupToUpdate.people = newPeople
         saveContactsToDisk()
     }
     
