@@ -136,6 +136,9 @@
                                                     <rect key="frame" x="311" y="0.0" width="47" height="40"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="customCellButtonPressed:" destination="Cgm-gx-HYe" eventType="touchUpInside" id="aKz-lM-Wk2"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -148,6 +151,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="customCellFavoriteButton" destination="US7-h8-FcX" id="guD-jf-Mf8"/>
+                                    <outlet property="customCellNameLabel" destination="TPe-y3-t9r" id="A5b-7P-tzL"/>
                                     <segue destination="J4c-OE-kRz" kind="show" identifier="toPersonDetailScreen" id="hoN-vp-RRA"/>
                                 </connections>
                             </tableViewCell>

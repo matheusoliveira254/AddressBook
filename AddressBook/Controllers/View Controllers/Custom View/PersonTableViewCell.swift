@@ -8,16 +8,26 @@
 import UIKit
 
 class PersonTableViewCell: UITableViewCell {
+//MARK: - IBOutlets
+    @IBOutlet weak var customCellNameLabel: UILabel!
+    @IBOutlet weak var customCellFavoriteButton: UIButton!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    //MARK: - Property
+    var person: Person? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    //MARK: - Methods
+    func updateViews() {
+        guard let person = person else {return}
+        customCellNameLabel.text = person.name
+        let favoriteImageName = person.isFavorite ? "start.fill" : "start"
+        let favoriteImage = UIImage(systemName: favoriteImageName)
+        customCellFavoriteButton.setImage(favoriteImage, for: .normal)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func customCellFavoriteButtonPressed(_ sender: UIButton) {
     }
-
 }
