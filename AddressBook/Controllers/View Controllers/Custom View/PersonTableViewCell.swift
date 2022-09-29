@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol PersonTableViewCellDelegate: AnyObject {
+    func toggleFavoriteButtonWasTapped(cell: PersonTableViewCell)
+}
+
 class PersonTableViewCell: UITableViewCell {
 //MARK: - IBOutlets
     @IBOutlet weak var customCellNameLabel: UILabel!
     @IBOutlet weak var customCellFavoriteButton: UIButton!
 
     //MARK: - Property
+    weak var delegate: PersonTableViewCellDelegate?
     var person: Person? {
         didSet {
             updateViews()
@@ -29,5 +34,6 @@ class PersonTableViewCell: UITableViewCell {
     }
 
     @IBAction func customCellFavoriteButtonPressed(_ sender: UIButton) {
+        delegate?.toggleFavoriteButtonWasTapped(cell: self)
     }
 }
