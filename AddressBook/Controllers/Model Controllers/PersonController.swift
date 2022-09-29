@@ -27,4 +27,9 @@ class PersonController {
         group.people.remove(at: indexOfPersonToBeDeleted)
         GroupController.sharedInstance.saveContactsToDisk()
     }
+    
+    static func toggleIsFavorite(contact: Person) {
+        contact.isFavorite.toggle()
+        GroupController.sharedInstance.saveContactsToDisk()
+    }
 } // End of class
