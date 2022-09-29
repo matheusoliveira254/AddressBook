@@ -11,22 +11,29 @@ class PeopleTableViewController: UITableViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak var groupNameTextField: UITextField!
-    
+    @IBOutlet weak var isOnlyFavoritePeopleSwitch: UISwitch!
     
     //MARK: - Receiver
     var groupReceiver: Group?
 
+    private var filteredPeople: [Person] {
+        if isOnlyFavoritePeopleSwitch.isOn {
+            return groupReceiver?.people.filter { $0.isFavorite } ?? []
+        } else {
+            return groupReceiver?.people ?? []
+        }
+    }
     //MARK: - Lifecycle
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         groupNameTextField.text = groupReceiver?.name
+//        isOnlyFavoritePeopleSwitch.isOn = false
         tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         guard let groupReceiver = groupReceiver,
         let newName = groupNameTextField.text
         else {return}
@@ -36,13 +43,14 @@ class PeopleTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return groupReceiver?.people.count ?? 0
+        return filteredPeople.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath)
-        let person = groupReceiver?.people[indexPath.row]
-        cell.textLabel?.text = person?.name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath) as? PersonTableViewCell else {return UITableViewCell()}
+        let person = filteredPeople[indexPath.row]
+        cell.person = person
+        cell.delegate = self
         return cell
     }
 
@@ -73,4 +81,19 @@ class PeopleTableViewController: UITableViewController {
         PersonController.create(group: group)
         tableView.reloadData()
     }
+    
+    @IBAction func onlyFavoritePeopleSwitchToggled(_ sender: UISwitch) {
+        tableView.reloadData()
+    }
+    
+}//End of class
+
+extension PeopleTableViewController: PersonTableViewCellDelegate {
+    func toggleFavoriteButtonWasTapped(cell: PersonTableViewCell) {
+        guard let person = cell.person else {return}
+        PersonController.toggleIsFavorite(contact: person)
+        tableView.reloadData()
+    }
 }
+
+

@@ -101,6 +101,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kYq-kW-iR0">
                                                     <rect key="frame" x="333" y="0.0" width="51" height="28"/>
+                                                    <connections>
+                                                        <action selector="onlyFavoritePeopleSwitchToggled:" destination="UGn-g9-TsY" eventType="valueChanged" id="5Ut-0m-pTF"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </stackView>
@@ -135,9 +138,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="US7-h8-FcX">
                                                     <rect key="frame" x="311" y="0.0" width="47" height="40"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
                                                     <connections>
-                                                        <action selector="customCellButtonPressed:" destination="Cgm-gx-HYe" eventType="touchUpInside" id="aKz-lM-Wk2"/>
+                                                        <action selector="toggleFavoriteButtonWasTapped:" destination="Cgm-gx-HYe" eventType="touchUpInside" id="1c5-yc-JXv"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -173,6 +176,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="groupNameTextField" destination="26J-tn-JK3" id="sEc-6k-5QO"/>
+                        <outlet property="isOnlyFavoritePeopleSwitch" destination="kYq-kW-iR0" id="KFj-yI-Yyd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMW-Sr-tWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -213,7 +217,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CnZ-tn-qBj">
                         <rightBarButtonItems>
-                            <barButtonItem image="star.fill" catalog="system" id="W4f-GK-29r">
+                            <barButtonItem image="star" catalog="system" id="W4f-GK-29r">
                                 <connections>
                                     <action selector="favoriteBarButtonItemTapped:" destination="J4c-OE-kRz" id="UK1-pq-sWk"/>
                                 </connections>
@@ -256,7 +260,7 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

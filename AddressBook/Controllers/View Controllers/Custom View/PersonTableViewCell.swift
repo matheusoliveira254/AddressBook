@@ -28,12 +28,12 @@ class PersonTableViewCell: UITableViewCell {
     func updateViews() {
         guard let person = person else {return}
         customCellNameLabel.text = person.name
-        let favoriteImageName = person.isFavorite ? "start.fill" : "start"
+        let favoriteImageName = person.isFavorite ? "star.fill" : "star"
         let favoriteImage = UIImage(systemName: favoriteImageName)
         customCellFavoriteButton.setImage(favoriteImage, for: .normal)
     }
 
-    @IBAction func customCellFavoriteButtonPressed(_ sender: UIButton) {
+    @IBAction func toggleFavoriteButtonWasTapped(_ sender: UIButton) {
         delegate?.toggleFavoriteButtonWasTapped(cell: self)
     }
 }

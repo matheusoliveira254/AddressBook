@@ -28,6 +28,7 @@ class PersonDetailViewController: UIViewController {
         guard let person = personReceiver else {return}
         personNameTextField.text = person.name
         personAddressTextField.text = person.address
+        updateFavoriteButton()
     }
     
     func updateFavoriteButton() {
@@ -35,7 +36,6 @@ class PersonDetailViewController: UIViewController {
         let favoriteImageName = personReceiver.isFavorite ? "star.fill" : "star"
         let favoriteImage = UIImage(systemName: favoriteImageName)
         favoriteBarButtonItem.image = favoriteImage
-
     }
     
     //MARK: - IBActions
